@@ -1,2 +1,2 @@
 # didbitcoincrashyet
-Did Bitcoin crash yet?
+Simple one-page site that answers the question: "Did Bitcoin crash yet?"
