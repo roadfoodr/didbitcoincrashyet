@@ -26,18 +26,18 @@
 	<footer></footer>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script>
-        let baseline = 60000;
-        let threshold = .75;
+        const baseline = 60000; <!-- hard-wired for now, price as of 3/13/21 -->
+        const threshold = .75;
         console.log("Fetching data...");
         (async() => {
             const data = await getData(data_url);
             console.log({ data })
-            let price = parseFloat(data.bpi.USD.rate_float)
+            const price = parseFloat(data.bpi.USD.rate_float)
             console.log("Price = " + price);
-            let comparison = baseline * threshold
+            const comparison = baseline * threshold
             console.log("Comparison = " + comparison);
 
-            let answer = (price < comparison) ? "yes" : "no";
+            const answer = (price < comparison) ? "yes" : "no";
             document.getElementById('answer').innerHTML = answer;
         })();
         
