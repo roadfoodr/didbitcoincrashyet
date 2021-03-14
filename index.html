@@ -24,7 +24,18 @@
     </main>
     
 	<footer></footer>
-	<script type="text/javascript" src=""></script>
+	<script type="text/javascript" src="js/script.js"></script>
+    <script>
+        var data_url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+        console.log("Fetching data...");
+        
+        (async() => {
+            const data = await getData(data_url);
+            console.log({ data })
+            console.log("Rate = " + data.bpi.USD.rate);
+        })();
+        
+    </script>
 </body>
 
 </html>
