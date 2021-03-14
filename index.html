@@ -8,9 +8,9 @@
 	<meta name="description" content="Did Bitcoin Crash Yet?">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" integrity="sha384-LTIDeidl25h2dPxrB2Ekgc9c7sEC3CWGM6HeFmuDNUjX76Ert4Z4IY714dhZHPLd" crossorigin="anonymous">
 	<link rel="icon" type="image/x-icon" href="favicon.ico"/>
-    <script src="https://kit.fontawesome.com/f1021802dc.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/f1021802dc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -19,23 +19,29 @@
         <div class="splash">
             <h1 class="splash-head">Did Bitcoin crash yet?</h1>
             <i class="fab fa-bitcoin"></i>
-            <h1 class="splash-subhead">NO</h1>
+            <h1 class="splash-subhead" id="answer">maybe</h1>
         </div>    
-    </main>
+	</main>
     
 	<footer></footer>
 	<script type="text/javascript" src="js/script.js"></script>
-    <script>
-        var data_url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+	<script>
+        let baseline = 60000;
+        let threshold = .75;
         console.log("Fetching data...");
-        
         (async() => {
             const data = await getData(data_url);
             console.log({ data })
-            console.log("Rate = " + data.bpi.USD.rate);
+            let price = parseFloat(data.bpi.USD.rate_float)
+            console.log("Price = " + price);
+            let comparison = baseline * threshold
+            console.log("Comparison = " + comparison);
+
+            let answer = (price < comparison) ? "yes" : "no";
+            document.getElementById('answer').innerHTML = answer;
         })();
         
-    </script>
+	</script>
 </body>
 
 </html>
