@@ -1,0 +1,25 @@
+.splash {
+    /* absolute center .splash */
+    width: 80%;
+    height: 50%;
+    margin: auto;
+    position: absolute;
+    top: 0px; left: 0; bottom: 0; right: 0;
+    text-align: center;
+}
+
+/* This is the main heading that appears on the blue section */
+.splash-head {
+    padding: 1em 1.6em;
+}
+
+.fa-bitcoin {
+    font-size: 4.25em;
+    color: dodgerblue;
+}
+
+.splash-subhead {
+    padding: .75em 1em;
+    font-size: 3em;
+    
+}
