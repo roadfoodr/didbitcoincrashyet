@@ -25,3 +25,13 @@
 #answer {
     text-transform: uppercase;
 }
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    height: 1em;            /* Footer height */
+    margin: 1em 0em;
+    font-size: .75em;
+    text-align: right;
+}
